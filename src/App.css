@@ -1,38 +1,159 @@
-.App {
-  text-align: center;
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --rad: 0.7rem;
+  --dur: 0.3s;
+  --color-dark: #2f2f2f;
+  --color-light: #fff;
+  --color-brand: #45b6ac;
+  --font-fam: "Lato", sans-serif;
+  --height: 5rem;
+  --btn-width: 6rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color:var(--color-light);
+  background: var(--color-dark);
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  overflow-wrap: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.widget {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  height: 25rem;
+  width: 40.625rem;
+  flex-wrap: wrap;
+  cursor: pointer;
+  border-radius: 1.25rem;
+  box-shadow: 0 1.7rem 3.4rem 0 rgba(0, 0, 0, 0.3),
+    0 1rem 1rem 0 rgba(0, 0, 0, 0.15);
+}
+.widget .weatherIcon {
+  flex: 1 100%;
+  height: 50%;
+  border-top-left-radius: 1.25rem;
+  border-top-right-radius: 1.25rem;
+  background: var(--color-light);
+  font-family: weathericons;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 6.25rem;
 }
 
-.App-link {
-  color: #61dafb;
+.widget .weatherInfo {
+  flex: 0 0 70%;
+  height: 40%;
+  background: var(--color-dark);
+  display: flex;
+  align-items: center;
+  color: var(--color-light)
+}
+.widget .weatherInfo .temperature {
+  flex: 0 0 40%;
+  width: 100%;
+  font-size: 4rem;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 1.25rem;
+}
+.widget .weatherInfo .description {
+  flex: 0 60%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+.widget .weatherInfo .description .weatherCondition {
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  font-weight: 100;
+}
+.widget .weatherInfo .description .place {
+  font-size: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.widget .extra-temp {
+  flex: 1 100%;
+  padding: 5% 0;
+  border-bottom-left-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
+  background: var(--color-light);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  font-size: 6.25rem;
 }
+
+.widget .extra-temp p {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.temp-info-minmax,
+.weather-extra-info,
+.two-sided-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  align-items: center;
+  color: var(--color-brand)
+  /* background-color: blanchedalmond; */
+}
+
+.widget .extra-temp .extra-info-leftside {
+  text-align: left;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--color-dark);
+  font-size: 1rem;
+}
+
+/* input search button style  */
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.searchTerm {
+  width: 100%;
+  border: none;
+  padding: 1rem;
+  height: 1.25rem;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: 1.2rem;
+  border-radius: 20px;
+}
+
+.searchTerm:focus {
+  color: var(--color-brand);
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -4rem;
+  margin-bottom: 3rem;
+}
+
