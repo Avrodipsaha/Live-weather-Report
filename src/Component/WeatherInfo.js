@@ -43,7 +43,7 @@ const WeatherInfo = () => {
       <>
         <div className="wrap">
           <div className="search">
-            <form>
+            <form onSubmit={(event)=>{event.preventDefault()}}>
             <input
               type="search"
               placeholder="search..."
